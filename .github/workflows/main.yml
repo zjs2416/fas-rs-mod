@@ -1,0 +1,18 @@
+# Ubuntu (NDK is required)
+apt install gcc-multilib git-lfs
+
+# Rust (Nightly version is required)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup default nightly
+rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
+rustup component add rust-src
+
+# Cargo-ndk
+cargo install cargo-ndk
+
+# Clone
+git clone https://github.com/shadow3aaa/fas-rs
+cd fas-rs
+
+# Compile
+cargo xtask build -r
